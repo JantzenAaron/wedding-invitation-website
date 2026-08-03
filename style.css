@@ -234,8 +234,8 @@ body.unlocked {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: clamp(90px, 18vmin, 140px);
-  height: clamp(90px, 18vmin, 140px);
+  width: clamp(120px, 22vmin, 200px);
+  height: clamp(120px, 22vmin, 200px);
   transition: transform 0.35s ease, opacity 0.5s ease;
   cursor: pointer;
 }
@@ -1350,8 +1350,8 @@ body.unlocked {
   }
 
   .wax-seal {
-    width: clamp(75px, 22vw, 100px);
-    height: clamp(75px, 22vw, 100px);
+    width: clamp(100px, 26vw, 150px);
+    height: clamp(100px, 26vw, 150px);
   }
 
   .tap-prompt {
@@ -1522,6 +1522,118 @@ body.unlocked {
 
   .date-number {
     font-size: 4.8rem;
+  }
+}
+
+/* ============================
+   VENUE LOCATION SECTION
+   ============================ */
+.venue-section {
+  width: 100%;
+  padding: 80px 32px;
+  background-color: var(--snow);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoiseV'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoiseV)'/%3E%3C/svg%3E");
+  display: flex;
+  justify-content: center;
+}
+
+.venue-content {
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+}
+
+.venue-card {
+  background: #fff;
+  border: 1px solid rgba(196, 160, 78, 0.3);
+  box-shadow: 0 12px 32px rgba(26, 46, 90, 0.08);
+  padding: 40px 28px 32px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.venue-card-name {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.venue-card-address {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--steel);
+  margin-bottom: 24px;
+}
+
+.venue-map-embed {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 160, 78, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.venue-map-embed iframe {
+  width: 100% !important;
+  height: 320px;
+  display: block;
+  border: none;
+}
+
+.venue-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.venue-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(26, 46, 90, 0.18);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.venue-link-btn:hover {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+  color: var(--navy-deep);
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(196, 160, 78, 0.3);
+}
+
+@media (max-width: 600px) {
+  .venue-section {
+    padding: 60px 16px;
+  }
+
+  .venue-card {
+    padding: 28px 16px 24px;
+  }
+
+  .venue-map-embed iframe {
+    height: 260px;
+  }
+
+  .venue-links {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
