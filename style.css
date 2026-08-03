@@ -39,7 +39,8 @@ body:not(.unlocked) {
 
 body {
   font-family: var(--font-body);
-  background: var(--snow);
+  background-color: var(--snow);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
   color: var(--navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -323,6 +324,108 @@ body.unlocked {
    ============================ */
 .main-content {
   min-height: 100vh;
+}
+
+/* ============================
+   HERO COVER SECTION (Beach Photo with Bottom Opacity Fade)
+   ============================ */
+.hero-cover-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-cover-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: brightness(0.96) contrast(1.02);
+}
+
+/* Gradient fade at the bottom of the picture into the next section */
+.hero-cover-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(248, 249, 251, 0.7) 80%,
+    #F8F9FB 100%
+  );
+  pointer-events: none;
+}
+
+.hero-cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--navy);
+  padding: 0 20px;
+  transform: translateY(-20px);
+}
+
+.hero-cover-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: clamp(5px, 1.5vw, 8px);
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.hero-cover-names {
+  font-family: var(--font-script);
+  font-size: clamp(3.8rem, 12vw, 6.5rem);
+  color: var(--navy);
+  text-shadow: 0 4px 16px rgba(255, 255, 255, 0.9);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero-scroll-prompt {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.6vw, 0.92rem);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8);
+  animation: bouncePrompt 2.5s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  font-size: 1rem;
+}
+
+@keyframes bouncePrompt {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
 }
 
 .names-section {
@@ -613,7 +716,8 @@ body.unlocked {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, var(--snow) 0%, #f0f3f7 100%);
+  background-color: #edf2f7;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoiseB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoiseB)'/%3E%3C/svg%3E");
   padding: 80px 32px;
   overflow: hidden;
 }
@@ -1078,7 +1182,8 @@ body.unlocked {
 .entourage-section {
   width: 100%;
   padding: 70px 32px 15px 32px;
-  background: var(--snow);
+  background-color: #edf2f7;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoiseB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoiseB)'/%3E%3C/svg%3E");
   display: flex;
   justify-content: center;
 }
@@ -1426,7 +1531,8 @@ body.unlocked {
 .rsvp-section {
   width: 100%;
   padding: 15px 32px 70px 32px;
-  background: linear-gradient(180deg, var(--snow) 0%, #f0f3f7 100%);
+  background-color: #edf2f7;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoiseB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoiseB)'/%3E%3C/svg%3E");
   display: flex;
   justify-content: center;
 }
