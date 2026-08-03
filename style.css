@@ -6,15 +6,15 @@
   --navy-deep: #0d1a38;
   --navy-light: #253f72;
   --navy-mid: #162a50;
-  --steel: #5D87B1;
-  --sky: #A4C3D2;
+  --steel: #2c527a;
+  --sky: #3d6c8e;
   --snow: #F8F9FB;
   --gold: #c4a04e;
   --gold-soft: #a8904c;
   --gold-muted: #8a7a48;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Montserrat', sans-serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
   --font-script: 'Great Vibes', cursive;
 }
 
@@ -78,7 +78,8 @@ body.unlocked {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  justify-content: center;
+  gap: 24px;
 }
 
 /* ---- HEADER TEXT ABOVE ENVELOPE ---- */
@@ -109,9 +110,9 @@ body.unlocked {
    ============================ */
 .envelope-wrapper {
   position: relative;
-  width: 82vw;
-  max-width: 680px;
-  aspect-ratio: 16 / 11;
+  width: 100vw;
+  max-width: 1200px;
+  aspect-ratio: 5 / 4;
   perspective: 1200px;
   transform-style: preserve-3d;
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4)) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
@@ -120,6 +121,10 @@ body.unlocked {
 
 .envelope-wrapper:hover {
   transform: scale(1.02);
+}
+
+.envelope-wrapper:hover .wax-seal {
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 /* ============================
@@ -339,27 +344,107 @@ body.unlocked {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(164, 195, 210, 0.06) 0%, transparent 65%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(196, 160, 78, 0.04) 0%, rgba(164, 195, 210, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Decorative corner accents */
+.names-section::after {
+  content: '';
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(196, 160, 78, 0.12);
+  border-radius: 2px;
   pointer-events: none;
 }
 
 .names-content {
+  position: relative;
   text-align: center;
   max-width: 700px;
   width: 100%;
+  z-index: 1;
+  transform: translateY(-32px);
+}
+
+/* ---- CORNER ORNAMENTS ---- */
+.corner-ornament {
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--gold);
+  opacity: 0.25;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 40px;
+  left: 40px;
+}
+
+.corner-tr {
+  top: 40px;
+  right: 40px;
+}
+
+.corner-bl {
+  bottom: 40px;
+  left: 40px;
+}
+
+.corner-br {
+  bottom: 40px;
+  right: 40px;
+}
+
+/* ---- WATERMARK DATE ---- */
+.names-watermark {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  font-weight: 300;
+  letter-spacing: clamp(6px, 2vw, 12px);
+  color: rgba(164, 195, 210, 0.3);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* ---- HERO VENUE ---- */
+.hero-venue {
+  margin-bottom: 24px;
+}
+
+.hero-venue .venue-name {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.hero-venue .venue-address {
+  font-family: var(--font-display);
+  font-size: clamp(0.92rem, 2.2vw, 1.1rem);
+  color: var(--steel);
+  letter-spacing: 0.5px;
 }
 
 /* ---- FLOURISHES ---- */
 .flourish {
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 }
 
 .flourish-bottom {
-  margin-top: 36px;
+  margin-top: 24px;
   margin-bottom: 0;
 }
 
@@ -371,31 +456,31 @@ body.unlocked {
 /* ---- INTRO TEXT ---- */
 .intro-text {
   font-family: var(--font-display);
-  font-size: clamp(0.9rem, 2.2vw, 1.15rem);
-  font-weight: 300;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 400;
   letter-spacing: clamp(4px, 1.2vw, 7px);
   text-transform: uppercase;
   color: var(--steel);
-  margin-bottom: 36px;
+  margin-bottom: 22px;
 }
 
 /* ---- COUPLE NAMES ---- */
 .couple-names {
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .name-groom,
 .name-bride {
-  font-family: var(--font-display);
-  font-size: clamp(3.8rem, 13vw, 7rem);
-  font-weight: 300;
+  font-family: var(--font-script);
+  font-size: clamp(4.2rem, 14vw, 7.5rem);
+  font-weight: 400;
   color: var(--navy);
   line-height: 1;
   letter-spacing: clamp(2px, 0.5vw, 5px);
 }
 
 .name-amp {
-  margin: 10px 0;
+  margin: 4px 0;
 }
 
 .name-amp span {
@@ -408,13 +493,13 @@ body.unlocked {
 /* ---- SUBTITLE ---- */
 .subtitle-text {
   font-family: var(--font-display);
-  font-size: clamp(0.88rem, 2vw, 1.1rem);
-  font-weight: 300;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 400;
   font-style: italic;
   letter-spacing: clamp(2px, 0.8vw, 4px);
   text-transform: lowercase;
-  color: var(--sky);
-  margin-bottom: 32px;
+  color: var(--steel);
+  margin-bottom: 20px;
 }
 
 /* ---- DIVIDER ---- */
@@ -449,18 +534,18 @@ body.unlocked {
 
 .date-label {
   font-family: var(--font-display);
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-  font-weight: 400;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 500;
   letter-spacing: clamp(5px, 1.4vw, 8px);
   text-transform: uppercase;
-  color: var(--sky);
+  color: var(--steel);
   margin-bottom: 8px;
 }
 
 .date-number {
-  font-family: var(--font-display);
+  font-family: var(--font-script);
   font-size: clamp(5.8rem, 20vw, 9rem);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--navy);
   line-height: 1;
 }
@@ -476,11 +561,11 @@ body.unlocked {
 
 .date-year {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  font-weight: 300;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 400;
   letter-spacing: clamp(7px, 2.2vw, 14px);
   text-transform: uppercase;
-  color: var(--sky);
+  color: var(--steel);
   margin-top: 4px;
 }
 
@@ -605,10 +690,11 @@ body.unlocked {
 .time-label {
   margin-top: 8px;
   font-family: var(--font-display);
-  font-size: clamp(0.6rem, 1.3vw, 0.75rem);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--steel);
+  color: var(--navy);
 }
 
 .time-sep {
@@ -638,10 +724,10 @@ body.unlocked {
 .moon-caption {
   margin-top: 18px;
   font-family: var(--font-display);
-  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   font-style: italic;
   letter-spacing: 1px;
-  color: var(--steel);
+  color: var(--navy);
 }
 
 /* ============================
@@ -669,7 +755,7 @@ body.unlocked {
 }
 
 .gallery-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-script);
   font-size: clamp(2.2rem, 6vw, 3.2rem);
   font-weight: 400;
   color: var(--navy);
@@ -789,8 +875,8 @@ body.unlocked {
   font-family: var(--font-display);
   font-style: italic;
   letter-spacing: 1px;
-  color: var(--sky);
-  font-size: 0.95rem;
+  color: var(--steel);
+  font-size: 1.05rem;
 }
 
 .lightbox-close {
@@ -799,7 +885,7 @@ body.unlocked {
   right: 32px;
   background: none;
   border: none;
-  color: var(--sky);
+  color: var(--steel);
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
@@ -837,7 +923,7 @@ body.unlocked {
 }
 
 .details-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-script);
   font-size: clamp(2rem, 5.5vw, 2.8rem);
   font-weight: 400;
   color: var(--navy);
@@ -858,11 +944,11 @@ body.unlocked {
 
 .details-subhead {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-soft);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -886,6 +972,34 @@ body.unlocked {
   font-size: 0.4rem;
   color: var(--steel);
   opacity: 0.6;
+}
+
+.venue-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.venue-full-address {
+  font-family: var(--font-display);
+  font-size: clamp(1.02rem, 2.2vw, 1.18rem);
+  line-height: 1.7;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.venue-time {
+  font-family: var(--font-display);
+  font-size: clamp(0.92rem, 2vw, 1.08rem);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--steel);
+  text-align: center;
 }
 
 .details-verse {
@@ -927,8 +1041,8 @@ body.unlocked {
 }
 
 .attire-desc {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--steel);
   margin-bottom: 20px;
@@ -963,7 +1077,7 @@ body.unlocked {
    ============================ */
 .entourage-section {
   width: 100%;
-  padding: 100px 32px;
+  padding: 70px 32px 15px 32px;
   background: var(--snow);
   display: flex;
   justify-content: center;
@@ -1000,9 +1114,9 @@ body.unlocked {
 .role-names {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(0.88rem, 2vw, 1rem);
+  font-size: clamp(0.98rem, 2.2vw, 1.12rem);
   line-height: 1.85;
-  color: var(--steel);
+  color: var(--navy);
 }
 
 .entourage-columns {
@@ -1045,82 +1159,7 @@ body.unlocked {
   }
 }
 
-/* ============================
-   RSVP SECTION
-   ============================ */
-.rsvp-section {
-  width: 100%;
-  padding: 60px 24px;
-  background: linear-gradient(180deg, var(--snow) 0%, #f0f3f7 100%);
-  display: flex;
-  justify-content: center;
-}
 
-.rsvp-content {
-  max-width: 580px;
-  width: 100%;
-  text-align: center;
-}
-
-.rsvp-card {
-  background: #fff;
-  border: 1px solid rgba(196, 160, 78, 0.3);
-  box-shadow: 0 8px 24px rgba(26, 46, 90, 0.06);
-  padding: 36px 24px 28px;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-.rsvp-line {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-
-.rsvp-deadline {
-  margin-bottom: 20px;
-}
-
-.rsvp-embed {
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto 20px;
-  border: 1px solid rgba(196, 160, 78, 0.2);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  background: #fff;
-}
-
-.rsvp-embed iframe {
-  width: 100% !important;
-  height: 750px;
-  display: block;
-  border: none;
-}
-
-.rsvp-coordinator {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--steel);
-  letter-spacing: 0.5px;
-}
-
-@media (max-width: 600px) {
-  .rsvp-section {
-    padding: 36px 16px;
-  }
-
-  .rsvp-card {
-    padding: 24px 14px;
-  }
-
-  .rsvp-embed iframe {
-    height: 820px;
-  }
-}
 
 /* ============================
    SMOOTH SCROLL REVEAL ANIMATIONS
@@ -1190,7 +1229,7 @@ body.unlocked {
   .envelope-wrapper {
     width: 90vw;
     max-width: none;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 5 / 4;
   }
 
   /* Envelope Overlay Fonts */
@@ -1379,6 +1418,100 @@ body.unlocked {
   .date-number {
     font-size: 4.8rem;
   }
+}
+
+/* ============================
+   RSVP SECTION & ELEGANT BUTTON
+   ============================ */
+.rsvp-section {
+  width: 100%;
+  padding: 15px 32px 70px 32px;
+  background: linear-gradient(180deg, var(--snow) 0%, #f0f3f7 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.rsvp-content {
+  max-width: 580px;
+  width: 100%;
+  text-align: center;
+}
+
+.rsvp-card {
+  background: #fff;
+  border: 1px solid rgba(196, 160, 78, 0.3);
+  box-shadow: 0 12px 32px rgba(26, 46, 90, 0.08);
+  padding: 44px 32px 36px;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.rsvp-line {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.rsvp-deadline {
+  margin-bottom: 24px;
+}
+
+.rsvp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 28px;
+  padding: 16px 44px;
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(26, 46, 90, 0.2);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.rsvp-button:hover::before {
+  left: 100%;
+}
+
+.rsvp-button:hover {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+  color: var(--navy-deep);
+  border-color: var(--navy);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(196, 160, 78, 0.35);
+}
+
+.rsvp-button .btn-arrow {
+  font-size: 0.8rem;
+  color: var(--gold);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.rsvp-button:hover .btn-arrow {
+  color: var(--navy-deep);
+  transform: scale(1.25) rotate(15deg);
 }
 
 /* ============================
