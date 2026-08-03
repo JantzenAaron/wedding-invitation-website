@@ -323,11 +323,12 @@ body.unlocked {
 .names-section {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--snow);
-  padding: 80px 32px 32px 32px;
+  padding: 80px 32px;
   overflow: hidden;
 }
 
@@ -523,11 +524,12 @@ body.unlocked {
 .countdown-section {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, var(--snow) 0%, #f1f4f7 100%);
-  padding: 16px 32px 60px 32px;
+  background: linear-gradient(180deg, var(--snow) 0%, #f0f3f7 100%);
+  padding: 80px 32px;
   overflow: hidden;
 }
 
@@ -1215,19 +1217,13 @@ body.unlocked {
   }
 
   /* Section Paddings */
-  .names-section {
-    padding: 40px 18px 12px 18px;
-  }
-
-  .countdown-section {
-    padding: 12px 18px 40px 18px;
-  }
-
+  .names-section,
+  .countdown-section,
   .gallery-section,
   .details-section,
   .entourage-section,
   .rsvp-section {
-    padding: 44px 18px;
+    padding: 60px 20px;
   }
 
   .details-card,
