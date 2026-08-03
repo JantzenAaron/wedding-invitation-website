@@ -29,9 +29,12 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+html:not(.unlocked),
+body:not(.unlocked) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 body {
@@ -40,7 +43,6 @@ body {
   color: var(--navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
 body.unlocked {
@@ -59,6 +61,8 @@ body.unlocked {
   justify-content: center;
   background: #001a4d;
   cursor: pointer;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1145,6 +1149,19 @@ body.unlocked {
     max-width: 500px;
   }
 
+  .envelope-names {
+    font-size: 2.5rem;
+  }
+
+  .name-groom,
+  .name-bride {
+    font-size: 4rem;
+  }
+
+  .date-number {
+    font-size: 6rem;
+  }
+
   .names-section,
   .countdown-section,
   .gallery-section,
@@ -1165,17 +1182,28 @@ body.unlocked {
     aspect-ratio: 4 / 3;
   }
 
+  /* Envelope Overlay Fonts */
+  .envelope-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+  }
+
+  .envelope-names {
+    font-size: 2.1rem;
+  }
+
   .wax-seal {
-    width: clamp(70px, 20vw, 100px);
-    height: clamp(70px, 20vw, 100px);
+    width: clamp(70px, 20vw, 95px);
+    height: clamp(70px, 20vw, 95px);
   }
 
   .tap-prompt {
     bottom: -32px;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     letter-spacing: 4px;
   }
 
+  /* Section Paddings */
   .names-section,
   .countdown-section,
   .gallery-section,
@@ -1188,30 +1216,37 @@ body.unlocked {
   .details-card,
   .entourage-card,
   .rsvp-card {
-    padding: 32px 20px;
+    padding: 36px 20px;
   }
 
-  .flourish {
-    margin-bottom: 24px;
-  }
-
-  .flourish-bottom {
-    margin-top: 28px;
-  }
-
+  /* Main Names Section Fonts */
   .intro-text {
-    margin-bottom: 28px;
+    font-size: 0.78rem;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
   }
 
   .couple-names {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+  }
+
+  .name-groom,
+  .name-bride {
+    font-size: 3.2rem;
+    letter-spacing: 2px;
   }
 
   .name-amp {
-    margin: 6px 0;
+    margin: 4px 0;
+  }
+
+  .name-amp span {
+    font-size: 2.2rem;
   }
 
   .subtitle-text {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
     margin-bottom: 24px;
   }
 
@@ -1219,8 +1254,81 @@ body.unlocked {
     margin-bottom: 24px;
   }
 
+  /* Date Display Fonts */
   .date-label {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
     margin-bottom: 6px;
+  }
+
+  .date-number {
+    font-size: 5rem;
+  }
+
+  .date-month {
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+  }
+
+  .date-year {
+    font-size: 0.85rem;
+    letter-spacing: 7px;
+  }
+
+  .invited-text {
+    font-size: 0.82rem;
+    letter-spacing: 3px;
+  }
+
+  /* Section Titles & Headings */
+  .countdown-script,
+  .gallery-script,
+  .details-script {
+    font-size: 1.8rem;
+  }
+
+  .gallery-heading,
+  .details-heading {
+    font-size: 2.1rem;
+    margin-bottom: 32px;
+  }
+
+  /* Entourage Fonts */
+  .role-title {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .role-names {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  /* Details & Verse */
+  .details-subhead {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+
+  .details-verse {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .attire-label {
+    font-size: 1rem;
+  }
+
+  .attire-desc {
+    font-size: 0.85rem;
+  }
+
+  .flourish {
+    margin-bottom: 20px;
+  }
+
+  .flourish-bottom {
+    margin-top: 24px;
   }
 }
 
@@ -1230,6 +1338,19 @@ body.unlocked {
 @media (max-width: 360px) {
   .envelope-wrapper {
     width: 92vw;
+  }
+
+  .envelope-names {
+    font-size: 1.85rem;
+  }
+
+  .name-groom,
+  .name-bride {
+    font-size: 2.7rem;
+  }
+
+  .date-number {
+    font-size: 4.2rem;
   }
 
   .wax-seal {

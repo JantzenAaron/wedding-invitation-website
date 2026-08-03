@@ -69,6 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(tick, 1000);
   }
 
+  // Lock all scrolling until envelope is opened
+  function preventScroll(e) {
+    if (!isOpened) {
+      e.preventDefault();
+    }
+  }
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+  window.addEventListener('wheel', preventScroll, { passive: false });
+
   // ---------------------------
   // 2. Click → Open flap, play music, then fade out
   // ---------------------------
@@ -98,7 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Step 3: Unlock body scroll, hide overlay, and trigger initial section reveals
     setTimeout(() => {
+      document.documentElement.classList.add('unlocked');
       document.body.classList.add('unlocked');
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
       envelopeOverlay.style.display = 'none';
       triggerReveals();
     }, 3000);
