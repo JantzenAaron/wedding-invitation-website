@@ -172,3 +172,127 @@ document.addEventListener('DOMContentLoaded', () => {
     polaroids.forEach((el) => polaroidObserver.observe(el));
   }
 });
+
+/* ============================
+   OUR STORY — SCROLL SECTION JS
+   Drives the spine draw-on-scroll and the
+   fade-in of each step's image/text.
+   ============================ */
+(function () {
+  const story = document.getElementById('story');
+  const svg = document.getElementById('spine');
+  const track = document.getElementById('track');
+  const drawn = document.getElementById('drawn');
+  const steps = Array.from(document.querySelectorAll('.step'));
+
+  if (!story || !svg) return; // section not on this page, skip safely
+
+  // ---- 1. Build a wiggly "spiral-ish" path down the center ----
+  // Generates a sine-like wave using cubic beziers so it feels hand-drawn.
+  // amp = how wide the wiggle swings, step = vertical distance per wiggle.
+  // IMPORTANT: width here must match the spine's real rendered width
+  // (not a fixed number) or the viewBox scales X and Y differently,
+  // which stretches the round dots into ovals.
+  function buildPath(width, height) {
+    const midX = width / 2;
+    const amp = Math.min(width * 0.32, 34); // scales with width, capped
+    const step = 140;
+    let d = `M ${midX} 0`;
+    let y = 0;
+    let dir = 1;
+    while (y < height) {
+      const nextY = y + step;
+      const cx = midX + amp * dir;
+      d += ` C ${cx} ${y + step * 0.25}, ${cx} ${y + step * 0.75}, ${midX} ${nextY}`;
+      dir *= -1;
+      y = nextY;
+    }
+    return d;
+  }
+
+  // node dots, one centered on each .step, added to the svg.
+  // Placed using the path's actual geometry (getPointAtLength) so the
+  // dot always sits exactly on the wavy line, not at a fixed x that
+  // the curve might be swinging away from at that height.
+  function placeDots(width, height) {
+    svg.querySelectorAll('circle').forEach((c) => c.remove());
+    const r = Math.min(width * 0.3, 7); // stays a true circle, just smaller on narrow spines
+    const totalLen = track.getTotalLength();
+
+    // path.y increases monotonically top to bottom, so binary search
+    // along the path's length for the point whose y matches the target.
+    function pointAtY(targetY) {
+      let lo = 0;
+      let hi = totalLen;
+      for (let i = 0; i < 24; i++) {
+        const mid = (lo + hi) / 2;
+        const pt = track.getPointAtLength(mid);
+        if (pt.y < targetY) lo = mid;
+        else hi = mid;
+      }
+      return track.getPointAtLength((lo + hi) / 2);
+    }
+
+    steps.forEach((step) => {
+      const stepTop = step.offsetTop;
+      const stepMid = stepTop + step.offsetHeight / 2;
+      const yInSvg = (stepMid / story.offsetHeight) * height;
+      const pt = pointAtY(yInSvg);
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', pt.x);
+      circle.setAttribute('cy', pt.y);
+      circle.setAttribute('r', r);
+      svg.appendChild(circle);
+      step._dot = circle;
+      step._dotY = pt.y;
+    });
+  }
+
+  let pathLength = 0;
+  function layout() {
+    const width = svg.clientWidth;   // actual rendered spine width at this breakpoint
+    const height = story.offsetHeight;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`); // 1:1 with real pixels, so X and Y scale equally
+    const d = buildPath(width, height);
+    track.setAttribute('d', d);
+    drawn.setAttribute('d', d);
+    pathLength = drawn.getTotalLength();
+    drawn.style.strokeDasharray = pathLength;
+    drawn.style.strokeDashoffset = pathLength; // start fully hidden
+    placeDots(width, height); // must run after track's "d" is set
+  }
+
+  // ---- 2. On scroll: reveal the line up to how far the user has scrolled
+  //         through .story, and light up dots / fade in image+text ----
+  function onScroll() {
+    const rect = story.getBoundingClientRect();
+    const viewportMid = window.innerHeight * 0.55; // "reveal point" on screen
+    const scrolled = viewportMid - rect.top;
+    const progress = Math.min(Math.max(scrolled / story.offsetHeight, 0), 1);
+
+    drawn.style.strokeDashoffset = pathLength * (1 - progress);
+
+    steps.forEach((step) => {
+      const stepRect = step.getBoundingClientRect();
+      const isVisible =
+        stepRect.top < window.innerHeight * 0.7 && stepRect.bottom > window.innerHeight * 0.2;
+      step.classList.toggle('is-visible', isVisible);
+      if (step._dot) {
+        const dotScreenY = svg.getBoundingClientRect().top + step._dotY;
+        step._dot.classList.toggle('lit', dotScreenY < viewportMid);
+      }
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    layout();
+    onScroll();
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', () => {
+    layout();
+    onScroll();
+  });
+  layout();
+  onScroll();
+})();

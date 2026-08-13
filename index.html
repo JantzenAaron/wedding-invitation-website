@@ -106,7 +106,8 @@
     <!-- ===== HERO COVER SECTION ===== -->
     <section class="hero-cover-section">
       <div class="hero-cover-bg">
-        <img src="images/hero-cover.jpg" alt="Beach sunset cover photo" class="hero-cover-img" />
+        <img src="images/Selected Picture/hero-cover.jpg" alt="Beach sunset cover photo" class="hero-cover-img"
+          loading="eager" decoding="async" />
         <div class="hero-cover-fade"></div>
       </div>
       <div class="hero-cover-content">
@@ -135,13 +136,13 @@
         <!-- Top flourish -->
         <div class="flourish reveal-el">
           <svg viewBox="0 0 300 30" class="flourish-svg">
-            <path d="M30,15 Q55,3 80,15 T130,15 T180,15 T230,15 T270,15" fill="none" stroke="#A4C3D2" stroke-width="0.7"
-              opacity="0.5" />
-            <path d="M50,15 Q70,5 90,15 T130,15 T170,15 T210,15 T250,15" fill="none" stroke="#5D87B1" stroke-width="0.4"
-              opacity="0.35" />
-            <circle cx="150" cy="15" r="2.5" fill="#5D87B1" opacity="0.45" />
-            <circle cx="130" cy="15" r="1.2" fill="#A4C3D2" opacity="0.25" />
-            <circle cx="170" cy="15" r="1.2" fill="#A4C3D2" opacity="0.25" />
+            <path d="M30,15 Q55,3 80,15 T130,15 T180,15 T230,15 T270,15" fill="none" stroke="#163F5C" stroke-width="0.8"
+              opacity="0.75" />
+            <path d="M50,15 Q70,5 90,15 T130,15 T170,15 T210,15 T250,15" fill="none" stroke="#8F6E1B" stroke-width="0.6"
+              opacity="0.65" />
+            <circle cx="150" cy="15" r="2.5" fill="#8F6E1B" opacity="0.75" />
+            <circle cx="130" cy="15" r="1.2" fill="#163F5C" opacity="0.5" />
+            <circle cx="170" cy="15" r="1.2" fill="#163F5C" opacity="0.5" />
           </svg>
         </div>
 
@@ -187,13 +188,13 @@
         <!-- Flourish -->
         <div class="flourish flourish-bottom reveal-el" data-delay="1300">
           <svg viewBox="0 0 300 30" class="flourish-svg">
-            <path d="M30,15 Q55,27 80,15 T130,15 T180,15 T230,15 T270,15" fill="none" stroke="#A4C3D2"
-              stroke-width="0.7" opacity="0.5" />
-            <path d="M50,15 Q70,25 90,15 T130,15 T170,15 T210,15 T250,15" fill="none" stroke="#5D87B1"
-              stroke-width="0.4" opacity="0.35" />
-            <circle cx="150" cy="15" r="2.5" fill="#5D87B1" opacity="0.45" />
-            <circle cx="130" cy="15" r="1.2" fill="#A4C3D2" opacity="0.25" />
-            <circle cx="170" cy="15" r="1.2" fill="#A4C3D2" opacity="0.25" />
+            <path d="M30,15 Q55,27 80,15 T130,15 T180,15 T230,15 T270,15" fill="none" stroke="#163F5C"
+              stroke-width="0.8" opacity="0.75" />
+            <path d="M50,15 Q70,25 90,15 T130,15 T170,15 T210,15 T250,15" fill="none" stroke="#8F6E1B"
+              stroke-width="0.6" opacity="0.65" />
+            <circle cx="150" cy="15" r="2.5" fill="#8F6E1B" opacity="0.75" />
+            <circle cx="130" cy="15" r="1.2" fill="#163F5C" opacity="0.5" />
+            <circle cx="170" cy="15" r="1.2" fill="#163F5C" opacity="0.5" />
           </svg>
         </div>
 
@@ -252,6 +253,80 @@
 
     <!-- ===== GALLERY SECTION ===== -->
     <section class="gallery-section">
+      <!-- ============================
+     OUR STORY — SCROLL SECTION
+     ============================ -->
+      <div class="story-intro">
+        <span class="eyebrow-script">A little history</span>
+        <h1>Our Story</h1>
+        <p>Scroll down — the thread draws itself as our story unfolds.</p>
+      </div>
+
+      <div class="story" id="story">
+
+        <!-- the wavy spine, one SVG behind everything -->
+        <svg class="spine" id="spine" viewBox="0 0 120 1000" preserveAspectRatio="none">
+          <!-- soft gold track, drawn once with the real path -->
+          <path id="track" d=""></path>
+          <!-- gold path on top, same "d", revealed with dash-offset -->
+          <path id="drawn" class="drawn" d=""></path>
+          <!-- node dots, one per step, positioned by JS -->
+        </svg>
+
+        <div class="step">
+          <div class="art">
+            <img src="images/Our Story/We met.png" alt="How we met">
+          </div>
+          <div></div>
+          <div class="copy">
+            <!-- <span class="eyebrow">Chapter One</span>
+            <h2>How We Met</h2> -->
+            <p>We meet in Florida, connected through social media and become friends.</p>
+          </div>
+        </div>
+
+        <div class="step reverse">
+          <div class="art">
+            <img src="images/Our Story/Played Music.png" alt="Falling in love">
+          </div>
+          <div></div>
+          <div class="copy">
+            <!-- <span class="eyebrow">Chapter Two</span>
+            <h2>Falling In Love</h2> -->
+            <p>He played music in a restaurant and me just exploring the city as i don’t know anyone yet.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="art">
+            <img src="images/Our Story/Tour.png" alt="The wedding day">
+          </div>
+          <div></div>
+          <div class="copy">
+            <!-- <span class="eyebrow">Chapter Three</span>
+            <h2>Adventure</h2> -->
+            <p>He became my
+              tour guide , uber driver, my shopping buddy, my foodie partner, the best listener when im down and my best
+              friend</p>
+          </div>
+        </div>
+
+        <div class="step reverse ">
+          <div class="art">
+            <img src="images/Our Story/Dance.png" alt="The proposal">
+          </div>
+          <div></div>
+          <div class="copy">
+            <!-- <span class="eyebrow">Chapter Four</span>
+            <h2></h2> -->
+            <p>After 5 months he sent a video of us dancing when we 1st meet. We both don’t know that his boss took a
+              video of us. </p>
+          </div>
+        </div>
+
+
+      </div>
+
       <div class="gallery-content">
 
         <p class="gallery-script reveal-el" data-delay="2300">moments we've kept</p>
@@ -266,37 +341,37 @@
         <div class="polaroid-grid">
           <figure class="polaroid-item" style="--tilt: -4deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-1.jpg" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img1.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
-            <figcaption>Where our story quietly began</figcaption>
+            <figcaption>My favorite place will always be beside you.</figcaption>
           </figure>
           <figure class="polaroid-item" style="--tilt: 3deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-2.png" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img6.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
-            <figcaption>Every journey became home with you.</figcaption>
+            <figcaption>Hand in hand, into our forever.</figcaption>
           </figure>
           <figure class="polaroid-item" style="--tilt: -2deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-3.png" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img3.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
-            <figcaption>One question. A lifetime of yes.</figcaption>
+            <figcaption>With you, every tomorrow feels brighter.</figcaption>
           </figure>
           <figure class="polaroid-item" style="--tilt: 5deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-4.png" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img4.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
-            <figcaption>Two families, one beautiful beginning.</figcaption>
+            <figcaption>Two hearts, choosing each other every day.</figcaption>
           </figure>
           <figure class="polaroid-item" style="--tilt: -3deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-5.png" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img2.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
-            <figcaption>Hand in hand, through every sunrise and sunset.</figcaption>
+            <figcaption>Here’s to forever, with you by my side.</figcaption>
           </figure>
           <figure class="polaroid-item" style="--tilt: 2deg;">
             <div class="polaroid-photo">
-              <img src="images/gallery-6.png" alt="Jersson and Shellanie" loading="lazy" />
+              <img src="images/Selected Picture/img5.jpg" alt="Jersson and Shellanie" loading="lazy" />
             </div>
             <figcaption>Today, tomorrow, forever—always us.</figcaption>
           </figure>
@@ -421,9 +496,6 @@
             <p class="role-title">Veil</p>
             <p class="role-names">Mr. Roland Castro<br>Ms. Cristina Castro</p>
           </div>
-
-          <div class="entourage-divider"><span></span><span class="entourage-dot">◆</span><span></span></div>
-
           <div class="entourage-block">
             <div class="entourage-columns">
               <div>
@@ -443,9 +515,6 @@
             <p class="role-title">Bible Bearer</p>
             <p class="role-names">Gabriel Angelo Barrer</p>
           </div>
-
-          <div class="entourage-divider"><span></span><span class="entourage-dot">◆</span><span></span></div>
-
           <div class="entourage-block">
             <div class="entourage-columns">
               <div>

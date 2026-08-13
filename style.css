@@ -2,16 +2,16 @@
    DESIGN TOKENS
    ============================ */
 :root {
-  --navy: #1A2E5A;
-  --navy-deep: #0d1a38;
-  --navy-light: #253f72;
-  --navy-mid: #162a50;
-  --steel: #2c527a;
-  --sky: #3d6c8e;
+  --navy: #091834;
+  --navy-deep: #040C1D;
+  --navy-light: #122646;
+  --navy-mid: #0B1B36;
+  --steel: #0E2338;
+  --sky: #163F5C;
   --snow: #F8F9FB;
-  --gold: #c4a04e;
-  --gold-soft: #a8904c;
-  --gold-muted: #8a7a48;
+  --gold: #8F6E1B;
+  --gold-soft: #7D6119;
+  --gold-muted: #5D4913;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Cormorant Garamond', Georgia, serif;
@@ -91,10 +91,10 @@ body.unlocked {
 .envelope-tagline {
   font-family: var(--font-display);
   font-size: clamp(0.7rem, 1.6vw, 0.9rem);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: clamp(3px, 1vw, 6px);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 8px;
 }
 
@@ -102,7 +102,7 @@ body.unlocked {
   font-family: var(--font-script);
   font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   letter-spacing: 1px;
 }
 
@@ -183,7 +183,7 @@ body.unlocked {
   font-family: var(--font-display);
   font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   letter-spacing: 4px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
   margin-top: 4px;
 }
 
@@ -272,7 +272,7 @@ body.unlocked {
   font-size: clamp(0.75rem, 1.3vw, 0.95rem);
   font-style: italic;
   letter-spacing: 5px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
   text-transform: lowercase;
   z-index: 12;
   animation: breathe 3s ease-in-out infinite;
@@ -283,11 +283,11 @@ body.unlocked {
 
   0%,
   100% {
-    opacity: 0.2;
+    opacity: 0.5;
   }
 
   50% {
-    opacity: 0.6;
+    opacity: 1;
   }
 }
 
@@ -332,8 +332,9 @@ body.unlocked {
 .hero-cover-section {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 560px;
+  height: 85vh;
+  height: 85dvh;
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -352,21 +353,20 @@ body.unlocked {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 30%;
   filter: brightness(0.96) contrast(1.02);
+  transition: object-position 0.3s ease, height 0.3s ease;
 }
 
 /* Gradient fade at the bottom of the picture into the next section */
 .hero-cover-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(248, 249, 251, 0.7) 80%,
-    #F8F9FB 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(248, 249, 251, 0.75) 80%,
+      #F8F9FB 100%);
   pointer-events: none;
 }
 
@@ -418,10 +418,13 @@ body.unlocked {
 }
 
 @keyframes bouncePrompt {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 0.75;
   }
+
   50% {
     transform: translateY(6px);
     opacity: 1;
@@ -477,7 +480,7 @@ body.unlocked {
   position: absolute;
   font-size: 0.7rem;
   color: var(--gold);
-  opacity: 0.25;
+  opacity: 0.5;
   z-index: 2;
   pointer-events: none;
 }
@@ -510,9 +513,9 @@ body.unlocked {
   transform: translateX(-50%);
   font-family: var(--font-display);
   font-size: clamp(0.7rem, 1.5vw, 0.85rem);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: clamp(6px, 2vw, 12px);
-  color: rgba(164, 195, 210, 0.3);
+  color: rgba(14, 35, 56, 0.45);
   text-transform: uppercase;
   pointer-events: none;
   z-index: 1;
@@ -560,7 +563,7 @@ body.unlocked {
 .intro-text {
   font-family: var(--font-display);
   font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: clamp(4px, 1.2vw, 7px);
   text-transform: uppercase;
   color: var(--steel);
@@ -597,7 +600,7 @@ body.unlocked {
 .subtitle-text {
   font-family: var(--font-display);
   font-size: clamp(1rem, 2.4vw, 1.25rem);
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
   letter-spacing: clamp(2px, 0.8vw, 4px);
   text-transform: lowercase;
@@ -624,7 +627,7 @@ body.unlocked {
 .divider-dot {
   font-size: 0.4rem;
   color: var(--steel);
-  opacity: 0.5;
+  opacity: 0.85;
 }
 
 /* ---- DATE DISPLAY ---- */
@@ -638,7 +641,7 @@ body.unlocked {
 .date-label {
   font-family: var(--font-display);
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: clamp(5px, 1.4vw, 8px);
   text-transform: uppercase;
   color: var(--steel);
@@ -656,7 +659,7 @@ body.unlocked {
 .date-month {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 4.5vw, 2.2rem);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: clamp(6px, 1.8vw, 12px);
   text-transform: uppercase;
   color: var(--steel);
@@ -665,7 +668,7 @@ body.unlocked {
 .date-year {
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 3vw, 1.4rem);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: clamp(7px, 2.2vw, 14px);
   text-transform: uppercase;
   color: var(--steel);
@@ -795,7 +798,7 @@ body.unlocked {
   margin-top: 8px;
   font-family: var(--font-display);
   font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--navy);
@@ -804,7 +807,7 @@ body.unlocked {
 .time-sep {
   font-size: 0.55rem;
   color: var(--gold);
-  opacity: 0.55;
+  opacity: 0.85;
   transform: translateY(-6px);
 }
 
@@ -979,7 +982,8 @@ body.unlocked {
   font-family: var(--font-display);
   font-style: italic;
   letter-spacing: 1px;
-  color: var(--steel);
+  color: #ffffff;
+  font-weight: 500;
   font-size: 1.05rem;
 }
 
@@ -989,11 +993,11 @@ body.unlocked {
   right: 32px;
   background: none;
   border: none;
-  color: var(--steel);
+  color: #ffffff;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -1049,7 +1053,7 @@ body.unlocked {
 .details-subhead {
   font-family: var(--font-display);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold-soft);
@@ -1069,13 +1073,13 @@ body.unlocked {
   flex: 1;
   max-width: 80px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(93, 135, 177, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(14, 35, 56, 0.35), transparent);
 }
 
 .details-divider-dot {
   font-size: 0.4rem;
   color: var(--steel);
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 .venue-title {
@@ -1091,6 +1095,7 @@ body.unlocked {
   font-family: var(--font-display);
   font-size: clamp(1.02rem, 2.2vw, 1.18rem);
   line-height: 1.7;
+  font-weight: 500;
   color: var(--navy);
   text-align: center;
   margin-bottom: 12px;
@@ -1099,7 +1104,7 @@ body.unlocked {
 .venue-time {
   font-family: var(--font-display);
   font-size: clamp(0.92rem, 2vw, 1.08rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--steel);
@@ -1110,6 +1115,7 @@ body.unlocked {
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(0.95rem, 2.3vw, 1.15rem);
+  font-weight: 500;
   line-height: 1.95;
   color: var(--navy);
   text-align: center;
@@ -1136,7 +1142,7 @@ body.unlocked {
 
 .attire-label {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1147,6 +1153,7 @@ body.unlocked {
 .attire-desc {
   font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.75;
   color: var(--steel);
   margin-bottom: 20px;
@@ -1208,7 +1215,7 @@ body.unlocked {
 
 .role-title {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(0.95rem, 2.2vw, 1.1rem);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1219,6 +1226,7 @@ body.unlocked {
 .role-names {
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 500;
   font-size: clamp(0.98rem, 2.2vw, 1.12rem);
   line-height: 1.85;
   color: var(--navy);
@@ -1246,13 +1254,13 @@ body.unlocked {
   flex: 1;
   max-width: 70px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(93, 135, 177, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(14, 35, 56, 0.35), transparent);
 }
 
 .entourage-dot {
   font-size: 0.4rem;
   color: var(--steel);
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 @media (max-width: 560px) {
@@ -1299,6 +1307,17 @@ body.unlocked {
    RESPONSIVE — TABLET
    ============================ */
 @media (max-width: 768px) {
+  .hero-cover-section {
+    height: 55vh;
+    height: 55dvh;
+    min-height: 320px;
+    max-height: 480px;
+  }
+
+  .hero-cover-img {
+    object-position: center 25%;
+  }
+
   .envelope-wrapper {
     width: 88vw;
     max-width: 500px;
@@ -1331,6 +1350,17 @@ body.unlocked {
    RESPONSIVE — PHONE (ENHANCED BIGGER FONTS)
    ============================ */
 @media (max-width: 600px) {
+  .hero-cover-section {
+    height: 46vh;
+    height: 46dvh;
+    min-height: 260px;
+    max-height: 380px;
+  }
+
+  .hero-cover-img {
+    object-position: center 20%;
+  }
+
   .envelope-wrapper {
     width: 90vw;
     max-width: none;
@@ -1511,6 +1541,16 @@ body.unlocked {
    RESPONSIVE — SMALL PHONE
    ============================ */
 @media (max-width: 380px) {
+  .hero-cover-section {
+    height: 42vh;
+    height: 42dvh;
+    min-height: 220px;
+  }
+
+  .hero-cover-img {
+    object-position: center 20%;
+  }
+
   .envelope-names {
     font-size: 2.2rem;
   }
@@ -1563,6 +1603,7 @@ body.unlocked {
 .venue-card-address {
   font-family: var(--font-display);
   font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-weight: 500;
   line-height: 1.7;
   color: var(--steel);
   margin-bottom: 24px;
@@ -1667,12 +1708,21 @@ body.unlocked {
 .rsvp-line {
   font-family: var(--font-display);
   font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-weight: 500;
   color: var(--navy);
   margin-bottom: 6px;
 }
 
 .rsvp-deadline {
   margin-bottom: 24px;
+}
+
+.rsvp-coordinator {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--steel);
+  line-height: 1.6;
 }
 
 .rsvp-button {
@@ -1733,9 +1783,324 @@ body.unlocked {
 }
 
 /* ============================
+   OUR STORY — SCROLL SECTION
+   ============================ */
+.story-intro {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 90px 24px 40px;
+  text-align: center;
+}
+
+.story-intro .eyebrow-script {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.story-intro h1 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+
+.story-intro p {
+  font-family: var(--font-body);
+  font-style: italic;
+  letter-spacing: 1px;
+  color: var(--steel);
+}
+
+/* ===== The story track ===== */
+.story {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px 130px;
+}
+
+/* The squiggly line lives in one absolutely-positioned SVG
+   that spans the full height of .story */
+.spine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.spine path {
+  fill: none;
+  stroke: rgba(143, 110, 27, 0.22);
+  /* soft gold track, unfilled */
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.spine path.drawn {
+  stroke: var(--gold);
+  /* the colored "filled in" line */
+  stroke-width: 2.5;
+  /* stroke-dasharray/offset get set by JS to reveal it on scroll */
+}
+
+.spine circle {
+  fill: var(--snow);
+  stroke: rgba(143, 110, 27, 0.35);
+  stroke-width: 2;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+.spine circle.lit {
+  fill: var(--gold);
+  stroke: var(--gold);
+}
+
+/* ===== Each step: image left / text right, spine passes between ===== */
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.step .art,
+.step .copy {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.step.is-visible .art,
+.step.is-visible .copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step .art {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: 32px;
+  text-align: right;
+}
+
+.step .art img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 4px;
+  border: 1px solid rgba(143, 110, 27, 0.3);
+  box-shadow: 0 14px 30px rgba(9, 24, 52, 0.18);
+}
+
+.step .copy {
+  grid-column: 3;
+  grid-row: 1;
+  padding-left: 32px;
+}
+
+/* Alternate: on a .step.reverse step, swap which side the
+   image and text sit on, just by swapping grid-column. */
+.step.reverse .art {
+  grid-column: 3;
+  padding-right: 0;
+  padding-left: 32px;
+  text-align: left;
+}
+
+.step.reverse .copy {
+  grid-column: 1;
+  padding-left: 0;
+  padding-right: 32px;
+  text-align: right;
+}
+
+.step .copy .eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 10px;
+}
+
+.step .copy h2 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  margin: 0 0 12px;
+  font-size: clamp(1.9rem, 3.4vw, 2.4rem);
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.step .copy p {
+  font-family: var(--font-body);
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--steel);
+}
+
+/* ===== Tablet: keep the 3-column layout, just tighten it ===== */
+@media (max-width: 720px) {
+  .step {
+    grid-template-columns: 1fr 60px 1fr;
+  }
+
+  .spine {
+    width: 60px;
+  }
+
+  .step .art {
+    padding-right: 14px;
+  }
+
+  .step .copy {
+    padding-left: 14px;
+  }
+
+  .step .art img {
+    max-width: 140px;
+  }
+
+  .step .copy h2 {
+    font-size: 1.6rem;
+  }
+
+  .step .copy p {
+    font-size: 0.95rem;
+  }
+
+  .step.reverse .art {
+    padding-left: 14px;
+  }
+
+  .step.reverse .copy {
+    padding-right: 14px;
+  }
+}
+
+/* ===== Phone: same centered-spine layout, everything just
+   scaled down further so it still fits comfortably. ===== */
+@media (max-width: 560px) {
+  .story-intro {
+    padding: 60px 20px 28px;
+  }
+
+  .story {
+    padding: 24px 12px 90px;
+  }
+
+  .step {
+    grid-template-columns: 1fr 40px 1fr;
+    min-height: 60vh;
+    padding: 48px 0;
+  }
+
+  .spine {
+    width: 40px;
+  }
+
+  .step .art {
+    padding-right: 20px;
+  }
+
+  .step .copy {
+    padding-left: 20px;
+  }
+
+  .step.reverse .art {
+    padding-left: 20px;
+    padding-right: 0;
+  }
+
+  .step.reverse .copy {
+    padding-right: 20px;
+    padding-left: 0;
+  }
+
+  .step .art img {
+    max-width: 150px;
+  }
+
+  .step .copy .eyebrow {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .step .copy h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .step .copy p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* ===== Very small phones: shrink once more ===== */
+@media (max-width: 380px) {
+  .step {
+    grid-template-columns: 1fr 30px 1fr;
+  }
+
+  .spine {
+    width: 30px;
+  }
+
+  .step .art {
+    padding-right: 14px;
+  }
+
+  .step .copy {
+    padding-left: 14px;
+  }
+
+  .step.reverse .art {
+    padding-left: 14px;
+  }
+
+  .step.reverse .copy {
+    padding-right: 14px;
+  }
+
+  .step .art img {
+    max-width: 118px;
+  }
+
+  .step .copy h2 {
+    font-size: 1.25rem;
+  }
+
+  .step .copy p {
+    font-size: 0.88rem;
+  }
+}
+
+/* ============================
    LANDSCAPE PHONE
    ============================ */
 @media (max-height: 500px) and (orientation: landscape) {
+  .hero-cover-section {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 250px;
+  }
+
+  .hero-cover-img {
+    object-position: center 30%;
+  }
+
   .envelope-wrapper {
     width: auto;
     height: 80vh;
