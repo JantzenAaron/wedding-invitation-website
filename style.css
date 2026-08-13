@@ -1837,15 +1837,13 @@ body.unlocked {
 
 .spine path {
   fill: none;
-  stroke: rgba(143, 110, 27, 0.22);
-  /* soft gold track, unfilled */
+  stroke: rgba(143, 110, 27, 0.22); /* soft gold track, unfilled */
   stroke-width: 2.5;
   stroke-linecap: round;
 }
 
 .spine path.drawn {
-  stroke: var(--gold);
-  /* the colored "filled in" line */
+  stroke: var(--gold); /* the colored "filled in" line */
   stroke-width: 2.5;
   /* stroke-dasharray/offset get set by JS to reveal it on scroll */
 }
@@ -1868,7 +1866,7 @@ body.unlocked {
   display: grid;
   grid-template-columns: 1fr 120px 1fr;
   align-items: center;
-  min-height: 70vh;
+  min-height: 42vh;
 }
 
 .step .art,
@@ -1955,35 +1953,27 @@ body.unlocked {
   .step {
     grid-template-columns: 1fr 60px 1fr;
   }
-
   .spine {
     width: 60px;
   }
-
   .step .art {
     padding-right: 14px;
   }
-
   .step .copy {
     padding-left: 14px;
   }
-
   .step .art img {
     max-width: 140px;
   }
-
   .step .copy h2 {
     font-size: 1.6rem;
   }
-
   .step .copy p {
     font-size: 0.95rem;
   }
-
   .step.reverse .art {
     padding-left: 14px;
   }
-
   .step.reverse .copy {
     padding-right: 14px;
   }
@@ -2002,8 +1992,8 @@ body.unlocked {
 
   .step {
     grid-template-columns: 1fr 40px 1fr;
-    min-height: 60vh;
-    padding: 48px 0;
+    min-height: 34vh;
+    padding: 32px 0;
   }
 
   .spine {
@@ -2053,35 +2043,27 @@ body.unlocked {
   .step {
     grid-template-columns: 1fr 30px 1fr;
   }
-
   .spine {
     width: 30px;
   }
-
   .step .art {
     padding-right: 14px;
   }
-
   .step .copy {
     padding-left: 14px;
   }
-
   .step.reverse .art {
     padding-left: 14px;
   }
-
   .step.reverse .copy {
     padding-right: 14px;
   }
-
   .step .art img {
     max-width: 118px;
   }
-
   .step .copy h2 {
     font-size: 1.25rem;
   }
-
   .step .copy p {
     font-size: 0.88rem;
   }
