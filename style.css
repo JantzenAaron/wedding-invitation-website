@@ -2070,6 +2070,131 @@ body.unlocked {
 }
 
 /* ============================
+   MOVING GALLERY (MARQUEE)
+   ============================ */
+.marquee-section {
+  width: 100%;
+  padding: 90px 0;
+  background: var(--snow);
+  overflow: hidden;
+}
+
+.marquee-intro {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.marquee-intro .eyebrow-script {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.marquee-intro h2 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  color: var(--navy);
+  margin: 0;
+}
+
+/* The visible window. Fades the edges so photos appear to
+   drift in/out of the page rather than cut off sharply. */
+.marquee-track-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+/* The strip of photos. It's exactly double the real set
+   (see HTML) so translating it by -50% loops seamlessly. */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+}
+
+/* Pause on hover so people can actually look at a photo */
+.marquee-track-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  width: 260px;
+  height: 320px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(143, 110, 27, 0.3);
+  box-shadow: 0 14px 30px rgba(9, 24, 52, 0.18);
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .marquee-section {
+    padding: 60px 0;
+  }
+  .marquee-item {
+    width: 200px;
+    height: 250px;
+  }
+  .marquee-track {
+    gap: 16px;
+    animation-duration: 26s;
+  }
+}
+
+@media (max-width: 420px) {
+  .marquee-item {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+
+/* ============================
    LANDSCAPE PHONE
    ============================ */
 @media (max-height: 500px) and (orientation: landscape) {
