@@ -1602,7 +1602,7 @@ body.unlocked {
 
 .venue-card-address {
   font-family: var(--font-display);
-  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
   font-weight: 500;
   line-height: 1.7;
   color: var(--steel);
