@@ -529,7 +529,7 @@ body.unlocked {
 
 .hero-venue .venue-name {
   font-family: var(--font-script);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   color: var(--navy);
   margin-bottom: 4px;
   line-height: 1.1;
@@ -537,9 +537,12 @@ body.unlocked {
 
 .hero-venue .venue-address {
   font-family: var(--font-display);
-  font-size: clamp(0.92rem, 2.2vw, 1.1rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   color: var(--steel);
   letter-spacing: 0.5px;
+  line-height: 1.4;
+  max-width: 34rem;
+  margin: 0 auto;
 }
 
 /* ---- FLOURISHES ---- */
@@ -1437,6 +1440,16 @@ body.unlocked {
     margin-bottom: 28px;
   }
 
+  .hero-venue .venue-name {
+    font-size: 2rem;
+  }
+
+  .hero-venue .venue-address {
+    font-size: 0.86rem;
+    max-width: 22.5rem;
+    line-height: 1.5;
+  }
+
   .divider {
     margin-bottom: 28px;
   }
@@ -1594,7 +1607,7 @@ body.unlocked {
 
 .venue-card-name {
   font-family: var(--font-script);
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
   color: var(--navy);
   margin-bottom: 6px;
   line-height: 1.1;
@@ -1602,11 +1615,13 @@ body.unlocked {
 
 .venue-card-address {
   font-family: var(--font-display);
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.3vw, 0.85rem);
   font-weight: 500;
-  line-height: 1.7;
+  line-height: 1.4;
   color: var(--steel);
-  margin-bottom: 24px;
+  margin: 0 auto 16px;
+  letter-spacing: 0.01em;
+  max-width: 30rem;
 }
 
 .venue-map-embed {
@@ -1666,6 +1681,16 @@ body.unlocked {
 
   .venue-card {
     padding: 28px 16px 24px;
+  }
+
+  .venue-card-name {
+    font-size: 1.5rem;
+  }
+
+  .venue-card-address {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    max-width: 20rem;
   }
 
   .venue-map-embed iframe {
