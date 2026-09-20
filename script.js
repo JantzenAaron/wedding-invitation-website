@@ -284,6 +284,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------------------------
+// Program Flow timeline — draws the spine, then reveals
+// each stop with a slight stagger
+// ---------------------------
+(function () {
+  const card = document.getElementById('program-timeline');
+  if (!card) return;
+
+  const items = card.querySelectorAll('.timeline-item');
+
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        card.classList.add('is-visible'); // grows the line downward
+        items.forEach((item, i) => {
+          setTimeout(() => item.classList.add('in-view'), 150 * i);
+        });
+        timelineObserver.unobserve(card);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  timelineObserver.observe(card);
+})();
+
   window.addEventListener('resize', () => {
     layout();
     onScroll();

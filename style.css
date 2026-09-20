@@ -1,4 +1,36 @@
 /* ============================
+   FONT FACES
+   ============================ */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('fonts/cormorant-garamond-v19-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('fonts/cormorant-garamond-v19-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/montserrat-v29-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('fonts/great-vibes-v18-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================
    DESIGN TOKENS
    ============================ */
 :root {
@@ -1275,8 +1307,169 @@ body.unlocked {
   }
 }
 
+/* ============================
+   PROGRAM FLOW / TIMELINE SECTION
+   ============================ */
+.timeline-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 32px;
+  background: linear-gradient(180deg, var(--snow) 0%, #f1f4f8 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.timeline-section::before,
+.timeline-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
 
+.timeline-section::before {
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  left: -160px;
+  background: radial-gradient(circle, rgba(93, 135, 177, 0.16) 0%, transparent 70%);
+}
+
+.timeline-section::after {
+  width: 380px;
+  height: 380px;
+  bottom: -150px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(196, 160, 78, 0.15) 0%, transparent 70%);
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+}
+
+.timeline-card {
+  padding: 8px 0;
+}
+
+.timeline-list {
+  position: relative;
+}
+
+/* the straight spine — centered structurally via grid, not percentage math */
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: linear-gradient(180deg, rgba(196, 160, 78, 0.2), rgba(93, 135, 177, 0.45), rgba(196, 160, 78, 0.2));
+  transition: height 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-card.is-visible .timeline-list::before {
+  height: 100%;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr; /* two equal 1fr tracks → true center, always */
+  align-items: center;
+  column-gap: 34px;
+  margin-bottom: 68px;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timeline-side--left {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.timeline-side--right {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.timeline-side--icon {
+  color: var(--navy);
+  opacity: 0.85;
+}
+
+.timeline-side--icon.timeline-side--left {
+  align-items: flex-end;
+}
+
+.timeline-side--icon.timeline-side--right {
+  align-items: flex-start;
+}
+
+.timeline-side--icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.timeline-time {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.timeline-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.6vw, 1.7rem);
+  color: var(--navy);
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px var(--snow);
+}
+
+@media (max-width: 480px) {
+  .timeline-item {
+    grid-template-columns: 1fr 32px 1fr;
+    column-gap: 20px;
+  }
+
+  .timeline-side--icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
 /* ============================
    SMOOTH SCROLL REVEAL ANIMATIONS
    ============================ */
